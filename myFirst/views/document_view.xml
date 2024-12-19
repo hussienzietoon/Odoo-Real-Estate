@@ -1,0 +1,62 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_document_tree" model="ir.ui.view">
+        <field name="name">document.tree</field>
+        <field name="model">document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="property_id"/>
+                <field name="document_type"/>
+                <field name="uploaded_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_document_form" model="ir.ui.view">
+        <field name="name">document.form</field>
+        <field name="model">document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="property_id"/>
+                        <field name="document_type"/>
+                        <field name="attachment" filename="attachment_filename"/>
+                        <field name="description"/>
+                        <field name="expiry_date"/>
+                        <field name="uploaded_by" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="document_action" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Scheduled Task -->
+    <record id="ir_cron_document_reminder" model="ir.cron">
+        <field name="name">Send Document Expiry Reminders</field>
+        <field name="model_id" ref="model_document"/>
+        <field name="state">code</field>
+        <field name="code">model.send_expiry_reminders()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem
+        id="document_menu_item"
+        name="Document"
+        parent="prop_menu"
+        action="document_action"
+    />
+</odoo>
