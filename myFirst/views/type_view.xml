@@ -1,0 +1,50 @@
+<odoo>
+<!--<record id="type_action" model="ir.actions.act_window">-->
+<!--    <field name="name">Type Action</field>-->
+<!--    <field name="res_model">type</field>-->
+<!--    <field name="view_mode">tree,form</field>-->
+<!--</record>-->
+<!--<record id="type_tree_view" model="ir.ui.view">-->
+<!--     <field name="name">Type</field>-->
+<!--    <field name="model">type</field>-->
+<!--    <field name="arch" type="xml">-->
+<!--         <tree string="Property Types" editable="bottom">-->
+<!--                <field name="name"/>-->
+<!--                <field name="sequence" widget="handle"/>-->
+<!--                <field name="prop_id" />-->
+
+<!--         </tree>-->
+<!--    </field>-->
+
+<!--</record>-->
+
+
+
+<!--<record id="type_form_view" model="ir.ui.view">-->
+<!--    <field name="name">Type</field>-->
+<!--    <field name="model">type</field>-->
+<!--    <field name="arch" type="xml">-->
+<!--        <form>-->
+<!--            <sheet>-->
+<!--                <group>-->
+<!--                  <group>-->
+<!--                                  <field name="name"/>-->
+
+<!--                  </group>-->
+
+<!--                    <field name="prop_id" />-->
+
+<!--                </group>-->
+
+<!--            </sheet>-->
+<!--        </form>-->
+<!--    </field>-->
+
+<!--</record>-->
+<!--    <menuitem-->
+<!--        id="type_menu_item"-->
+<!--        name="Type"-->
+<!--        parent="Configration_menu"-->
+<!--        action="type_action"-->
+<!--    />-->
+</odoo>

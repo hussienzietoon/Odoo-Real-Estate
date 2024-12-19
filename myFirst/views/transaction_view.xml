@@ -1,0 +1,48 @@
+<odoo>
+    <!-- Transaction Tree View -->
+    <record id="view_transaction_tree" model="ir.ui.view">
+        <field name="name">Transaction Tree View</field>
+        <field name="model">transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="amount"/>
+                <field name="prop_id"/>
+                <field name="parties_involved"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Transaction Form View (Optional, for detailed view when selecting a record) -->
+    <record id="view_transaction_form" model="ir.ui.view">
+        <field name="name">Transaction Form View</field>
+        <field name="model">transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="amount"/>
+                        <field name="prop_id"/>
+                        <field name="parties_involved"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Transaction -->
+    <record id="transaction_action" model="ir.actions.act_window">
+        <field name="name">Transactions</field>
+        <field name="res_model">transaction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for Transactions -->
+    <menuitem
+        id="transaction_menu_item"
+        name="Transactions"
+        parent="Configration_menu"
+        action="transaction_action"
+    />
+</odoo>

@@ -1,0 +1,48 @@
+<odoo>
+     <!-- Tenant Survey Tree View -->
+        <record id="view_tenant_survey_tree" model="ir.ui.view">
+            <field name="name">tenant.survey.tree</field>
+            <field name="model">survey</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tenant_id"/>
+                    <field name="prop_id"/>
+                    <field name="rating"/>
+                    <field name="survey_date"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Tenant Survey Form View -->
+        <record id="view_tenant_survey_form" model="ir.ui.view">
+            <field name="name">tenant.survey.form</field>
+            <field name="model">survey</field>
+            <field name="arch" type="xml">
+                <form string="Tenant Satisfaction Survey">
+                    <group>
+                        <field name="tenant_id" readonly="1"/>
+                        <field name="prop_id"/>
+                        <field name="rating"/>
+                        <field name="comments"/>
+                        <field name="survey_date"/>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+
+    <record id="survey_action" model="ir.actions.act_window">
+        <field name="name">survey</field>
+        <field name="res_model">survey</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="survey_menu_item"
+        name="Survey"
+        parent="prop_menu"
+        action="survey_action"
+    />
+</odoo>

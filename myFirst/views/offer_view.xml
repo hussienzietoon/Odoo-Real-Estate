@@ -1,0 +1,47 @@
+<odoo>
+
+<record id="offer_action" model="ir.actions.act_window">
+    <field name="name">offer action</field>
+    <field name="res_model">offer</field>
+    <field name="view_mode">tree,form</field>
+</record>
+  <record id="offer_view_tree" model="ir.ui.view" >
+    <field name="name">offer</field>
+    <field name="model">offer</field>
+    <field name="arch" type="xml">
+    <tree >
+        <field name="price"/>
+        <field name="status"/>
+        <field name="partner_id"/>
+         <button  type="object" name="accept_button" icon="fa-check" title="Accept" />
+         <button  type="object" name="refuse_button" icon="fa-times" title="Refuse" />
+    </tree>
+   </field>
+</record>
+
+<record id="offer_form" model="ir.ui.view">
+    <field name="name">Offer</field>
+    <field name="model">offer</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                        <field name="price"/>
+                        <field name="status"/>
+                        <field name="partner_id"/>
+                        <field name="validity"/>
+                        <field name="date_deadline"/>
+
+                </group>
+            </sheet>
+        </form>
+    </field>
+
+</record>
+    <menuitem
+        id="offer_menu_item"
+        name="Offer"
+        parent="Configration_menu"
+        action="offer_action"
+    />
+</odoo>
